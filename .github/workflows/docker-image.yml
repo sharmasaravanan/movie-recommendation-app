@@ -32,5 +32,18 @@ jobs:
         with:
           context: .
           push: true
-          tags: sharmasaravanan1109/movie-recommendation-app:latest
+          tags: sharmasaravanan1109/movie-recommendation-app:latest # change the username and repo name accordingly
+
+      # Step 5 (Optional): Trigger deployment on your production server via SSH
+#     - name: Deploy to Remote Server
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: ${{ secrets.SERVER_HOST }}  # add these in the secrets in the settings
+#         username: ${{ secrets.SERVER_USER }}
+#         key: ${{ secrets.SERVER_SSH_KEY }}
+#         script: |
+#           docker pull sharmasaravanan1109/movie-recommendation-app:latest
+#           docker stop movie-recommendation-app || true
+#           docker rm movie-recommendation-app || true
+#           docker run -d --name my-app -p 80:80 sharmasaravanan1109/movie-recommendation-app:latest
         
